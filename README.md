@@ -2,52 +2,84 @@
 [![rank](https://make.fun/badge/news-image-20261117/emafajriana/news-image-20261117-entry/rank.svg)](https://make.fun/bounty/news-image-20261117/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
 [![reward](https://make.fun/badge/news-image-20261117/emafajriana/news-image-20261117-entry/reward.svg)](https://make.fun/bounty/news-image-20261117?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
 
-# The World Today — Tuesday 17 November 2026 in One Picture
+# Tuesday 17 November 2026: 40 stories, 6 continents, one front page and a map
 
 A front-page image summing up the world news of Tuesday 17 November 2026,
 built for the make.fun `news-image-20261117` bounty ("Sum up 17 November's
-world news in one image"). The program is a one-step copier: `main.py`
-copies the bundled `entry.png` to `/output/entry.png` and validates it
-(PNG, 1024x1024, under 1 MiB) before reporting its sha256.
+world news in one image"). The page follows the classic newspaper layout:
+a date-only serif masthead on cream paper, three hero stories and twelve
+more pictured stories, then a world map with numbered pins and a dense
+index of all 40 stories. `main.py` rebuilds the page deterministically
+from the bundled assets in `assets/` and writes `/output/entry.png`,
+validating it (PNG, 1024x1024, under 1 MiB) and reporting its sha256; if
+the drawing stack is unavailable it falls back to copying the bundled
+`entry.png`, which is byte-identical to a built page.
 
 ## The day's stories
 
-Eight illustrated lead stories:
+Fifteen pictured stories (numbered badges on the panels, matching pins on
+the map):
 
-1. **Iran strikes US base in Bahrain** — drones hit a US radar site, the
-   third strike in days; a third US carrier arrives in the Gulf.
-2. **Ukraine hits the Kerch Bridge** — Kyiv's drones and missiles damage
-   the Crimea link; Russia strikes Kyiv's bridges in reply.
-3. **Trump lands in Manila** — the president arrives for the ASEAN summit;
-   talks with Xi in Shenzhen are next.
-4. **Houthis close on Aden** — Yemen's government forces pull back from
-   the Red Sea coast as the Houthis advance.
-5. **Estonia shuts its Russia border** — Tallinn to close every crossing
-   from 1 December after a foiled arson plot.
-6. **US moves on AI chips** — new rules block China's remote access to AI
-   chips; Nvidia's Huang faces Congress.
-7. **FAA halts router roll-out** — after the ground-stop chaos, senators
-   demand a pause and the FBI joins the probe.
-8. **Mongolia's president resigns** — Khurelsukh quits over railway
-   bribery claims; parliament must accept the resignation.
+1. **US and Iran trade fire across the Gulf** — US jets strike a missile
+   site on Qeshm Island; Iranian drones hit a US radar site in Bahrain
+   for the third time in five days.
+2. **Ukraine knocks out a section of the Kerch Bridge** — a span of the
+   Crimea link collapses into the strait.
+3. **Trump lands in Manila** — the president arrives for the ASEAN
+   summit as Quad leaders agree their first joint patrol exercise.
+4. **Ebola in DR Congo passes 11,000 cases** — more than 5,400 dead in
+   the outbreak.
+5. **Cyclone Xavier batters the Cook Islands** — the storm reaches
+   Category 5 over the northern group.
+6. **Knesset elects Kahana as speaker** — an ally of Gadi Eisenkot takes
+   the chair.
+7. **Settler mob kills a woman, 72, near Jericho** — Britain sanctions
+   settler groups in response.
+8. **US, Mexico and Bolivia lose measles-free status** — PAHO strips
+   the elimination status of all three.
+9. **Nvidia posts record $115bn quarterly revenue** — and will not
+   reinstate Huang, Congress is told.
+10. **Pope Leo ends his South America tour in Peru** — defending the
+    Amazon and Indigenous peoples.
+11. **146,000 march in France** — public-sector pay protests across the
+    country; unions claim far more.
+12. **Estonia shuts its border with Russia** — every crossing to close
+    from 1 December.
+13. **Mongolia's president resigns** — Khurelsukh quits; parliament must
+    accept the resignation.
+14. **Deadly hailstorms sweep central Argentina** — severe storms batter
+    the pampas.
+15. **Vulcan failure costs 40 Amazon satellites** — ULA confirms the
+    first stage underperformed.
 
-Plus an "Also Today" strip of twelve more: Japan scrambles jets as
-Russian planes enter its airspace; Iraq orders its army into a Kataib
-Hezbollah stronghold; the West urges Israel to open Gaza crossings for
-aid; Depardieu pleads guilty to sexual assault; Epstein death — an expert
-calls it murder, not suicide; a Russian military plane crashes, 19
-killed; Haiti rallies back Bukele's troops fighting gangs; Moldova says a
-Russian drone flew over Chisinau; the Pentagon fails its audit for a
-ninth straight year; the NSA internal network crashes; Moscow claims
-1,400+ Ukrainian drones downed; France's covert military operation in
-Ukraine revealed.
+Plus 25 more in the index (16-40): Houthis close in on Aden; US tightens
+AI chip rules for China; FAA halts air-traffic router roll-out; Japan
+jets scramble near Russian planes; Iraq army clashes with Kataib
+Hezbollah; West urges Israel to open Gaza crossings; Depardieu found
+guilty in Paris; Epstein expert floats murder claim; Russian plane crash
+kills 19 in Siberia; Haiti backs Bukele troop offer; drone overflies
+Chisinau; Pentagon fails audit for ninth year; NSA network crash blamed
+on vendor; Moscow claims 1,400 drones downed; France ran covert op in
+Ukraine; Trump "looking into" Iran dirty-bomb talk; COP31 draft sparks
+fossil-fuel fight; Intel shareholders sue after 29% fall; China expands
+tariff relief for Canada; five EU states plan Rwanda migrant hub; two
+mass shootings kill 17 in South Africa; Nepal first for loss-and-damage
+funds; EU clears UniCredit bid for Commerzbank; Burnham floats closer UK
+ties to EU.
+
+Every story was cross-checked in at least two independent roundups of
+17 November 2026 before it earned its number.
 
 ## How it was built
 
-Eight text-free panel illustrations were generated, then composed into a
-1024x1024 front page with PIL; every word on the page was rendered
-programmatically (DejaVu fonts), never by the image generator. The entry
-is deterministic: `main.py` copies the same bytes on every run.
+Fifteen text-free flat editorial illustrations were generated (cream,
+tan, ochre, deep red and slate, halftone texture), then composed into a
+1024x1024 front page with PIL from the assets in `assets/`: every word on
+the page was rendered programmatically (bundled DejaVu fonts), the flag
+chips and number badges are drawn by code, and the world map is a
+public-domain outline with code-drawn pins. The build is deterministic:
+two runs of `main.py` produce byte-identical output, equal to the bundled
+`entry.png`.
 
 ## Run it
 
